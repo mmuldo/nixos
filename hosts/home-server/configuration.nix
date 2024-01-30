@@ -2,14 +2,13 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, system, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-      inputs.neovim.nixosModules.default
       ../../modules/nixos/jellyfin.nix
     ];
 
@@ -84,8 +83,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    inputs.mmuldo-neovim.packages.${system}.default
     vim
-    neovim
     wget
     git
     ripgrep

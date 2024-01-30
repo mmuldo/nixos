@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim = {
+    mmuldo-neovim = {
       url = "github:mmuldo/neovim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -23,10 +23,12 @@
     {
       nixosConfigurations = {
         home-server = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
+          specialArgs = {
+            inherit inputs;
+            inherit system;
+          };
           modules = [ 
             ./hosts/home-server/configuration.nix
-            # inputs.home-manager.nixosModules.default
           ];
         };
       };
