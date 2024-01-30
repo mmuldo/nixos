@@ -1,6 +1,12 @@
+{ user, ...}:
 {
-  home.username = "matt";
-  home.homeDirectory = "/home/matt";
+  home = {
+    username = user.name;
+    homeDirectory = "/home/" + user.name;
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
+  };
 
   programs.git = {
     enable = true;
@@ -10,7 +16,7 @@
         core.editor = "nvim";
       };
     }];
-    userName = "Matt Muldowney";
-    userEmail = "matt.muldowney@gmail.com";
+    userName = user.fullName;
+    userEmail = user.email;
   };
 }

@@ -19,6 +19,12 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+
+      user = {
+        name = "matt";
+        email = "matt.muldowney@gmail.com";
+        fullName = "Matt Muldowney";
+      };
     in
     {
       nixosConfigurations = {
@@ -26,6 +32,7 @@
           specialArgs = {
             inherit inputs;
             inherit system;
+            inherit user;
           };
           modules = [ 
             ./hosts/home-server/configuration.nix
