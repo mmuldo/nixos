@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     ../../modules/nixos
-    ../../modules/nixos/user.nix
     ../../modules/nixos/jellyfin.nix
     ../../modules/nixos/wg-vpn
   ];
@@ -59,6 +58,10 @@
       publicKey = "ViM1WXRmG4HL4eFbGw6s1EqiND7KXtLiE1h4kosMdw0=";
       ipv4.publicAddress = "172.234.95.55";
     };
+  };
+
+  normal-users.${user.name} = {
+    ssh.authorizedKeys = user.ssh.authorizedKeys;
   };
 
   editors.neovim.enable = true;
