@@ -6,7 +6,6 @@
     inputs.home-manager.nixosModules.default
     ../../modules/nixos
     ../../modules/nixos/jellyfin.nix
-    ../../modules/nixos/wg-vpn
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
