@@ -8,6 +8,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = user.ssh.authorizedKeys;
   };
 
   programs.zsh.enable = true;

@@ -6,6 +6,7 @@
     inputs.home-manager.nixosModules.default
     ../../modules/nixos/user.nix
     ../../modules/nixos/jellyfin.nix
+    ../../modules/nixos/wg-vpn
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -39,6 +40,7 @@
     git
     ripgrep
     gcc
+    qbittorrent-nox
   ];
 
   programs.gnupg.agent = {
@@ -47,6 +49,16 @@
   };
 
   services.openssh.enable = true;
+
+  wg-vpn.client = {
+    enable = true;
+    interface.ipv4.address = "10.0.0.3";
+    privateKeyFile = "/root/wireguard-keys/private.key";
+    server = {
+      publicKey = "ViM1WXRmG4HL4eFbGw6s1EqiND7KXtLiE1h4kosMdw0=";
+      ipv4.publicAddress = "172.234.95.55";
+    };
+  };
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.
