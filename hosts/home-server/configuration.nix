@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+    ../../modules/nixos
     ../../modules/nixos/user.nix
     ../../modules/nixos/jellyfin.nix
     ../../modules/nixos/wg-vpn
@@ -34,11 +35,11 @@
   time.timeZone = "America/Chicago";
 
   environment.systemPackages = with pkgs; [
-    inputs.mmuldo-neovim.packages.${system}.default
+    #inputs.mmuldo-neovim.packages.${system}.default
     vim
     wget
     git
-    ripgrep
+    #ripgrep
     gcc
     qbittorrent-nox
   ];
@@ -59,6 +60,8 @@
       ipv4.publicAddress = "172.234.95.55";
     };
   };
+
+  editors.neovim.enable = true;
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.
