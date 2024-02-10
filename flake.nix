@@ -35,7 +35,6 @@
         };
 
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
 
       user = {
         name = "matt";
@@ -51,16 +50,19 @@
       nixosConfigurations = {
         home-server = mkSystem "home-server";
         linode-vpn = mkSystem "linode-vpn";
-      };
 
-      packages.${system} = {
-        linode-vpn = nixos-generators.nixosGenerate {
-          inherit system;
-          format = "linode";
+        # ex:
+        #   $ nix build .#nixosConfigurations.iso.config.formats.linode
+        iso = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs system user;
+          };
           modules = [
-            ./hosts/linode-vpn/configuration.nix
+            self.nixosModules.hardware
+            { hardware.iso.enable = true; }
           ];
         };
+
       };
 
       nixosModules.default = ./modules/nixos;
