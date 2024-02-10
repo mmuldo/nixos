@@ -22,6 +22,17 @@
 
   outputs = { self, nixpkgs, nixos-generators, ... }@inputs:
     let
+      mkSystem = config:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs system user;
+          };
+          modules = [
+            self.nixosModules.default
+            config
+          ];
+        };
+
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
 
@@ -37,38 +48,8 @@
     in
     {
       nixosConfigurations = {
-        home-server = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit system;
-            inherit user;
-          };
-          modules = [ 
-            ./hosts/home-server/configuration.nix
-          ];
-        };
-
-        linode-vpn = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit system;
-            inherit user;
-          };
-          modules = [
-            ./hosts/linode-vpn/configuration.nix
-          ];
-        };
-
-        linode-vpn2 = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit system;
-            inherit user;
-          };
-          modules = [
-            ./hosts/linode-vpn/configuration.nix
-          ];
-        };
+        home-server = mkSystem ./hosts/home-server/configuration.nix;
+        linode-vpn = mkSystem ./hosts/linode-vpn/configuration.nix;
       };
 
       packages.${system} = {
@@ -81,5 +62,7 @@
         };
       };
 
+      nixosModules.default = ./modules/nixos;
+      homeManagerModules.default = ./modules/home;
     };
 }

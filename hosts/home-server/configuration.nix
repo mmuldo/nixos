@@ -4,10 +4,8 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
-    ../../modules/nixos
+    #../../modules/nixos
   ];
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   home-manager = {
     extraSpecialArgs = {
@@ -32,11 +30,7 @@
   time.timeZone = "America/Chicago";
 
   environment.systemPackages = with pkgs; [
-    #inputs.mmuldo-neovim.packages.${system}.default
-    vim
-    wget
     git
-    #ripgrep
     gcc
   ];
 

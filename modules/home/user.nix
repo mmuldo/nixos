@@ -26,8 +26,8 @@ in
 
   config = {
     home = {
-      username = cfg.user.name;
-      homeDirectory = "/home/${cfg.user.name}";
+      username = cfg.name;
+      homeDirectory = "/home/${cfg.name}";
       sessionVariables = {
         EDITOR = cfg.editor;
       };
@@ -41,8 +41,8 @@ in
           core.editor = cfg.editor;
         };
       }];
-      userName = cfg.user.fullName;
-      userEmail = cfg.user.email;
+      userName = cfg.fullName;
+      userEmail = cfg.email;
     };
   };
 }

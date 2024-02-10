@@ -4,12 +4,8 @@
   imports = [
     inputs.home-manager.nixosModules.default
     "${toString modulesPath}/profiles/qemu-guest.nix"
-
-    ../../modules/nixos/user.nix
-    ../../modules/nixos/wg-vpn
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.hostPlatform = system;
 
   home-manager = {
@@ -21,10 +17,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim
-    wget
     git
-    ripgrep
     gcc
     inetutils
     mtr
@@ -133,5 +126,10 @@
       }
     ];
   };
+
+  normal-users.${user.name} = {
+    ssh.authorizedKeys = user.ssh.authorizedKeys;
+  };
+
 }
 

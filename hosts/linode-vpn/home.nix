@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   imports = [
-      ../../modules/home/zsh
-      ../../modules/home/user.nix
+      ../../modules/home
     ];
 
   # You should not change this value, even if you update Home Manager. If you do
@@ -11,6 +10,13 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   programs.neovim.enable = true;
+
+  user = {
+    inherit (user) name fullName email;
+  };
+
+  shells.zsh.enable = true;
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

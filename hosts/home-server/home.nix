@@ -2,7 +2,6 @@
 {
   imports = [
       ../../modules/home
-      ../../modules/home/zsh
     ];
 
   # You should not change this value, even if you update Home Manager. If you do
@@ -32,6 +31,8 @@
   user = {
     inherit (user) name fullName email;
   };
+
+  shells.zsh.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
