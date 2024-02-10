@@ -6,16 +6,21 @@ let
 
   clientOpts = {
     options = {
+
       publicKey = mkOption {
         type = types.str;
       };
+
       ipv4.address = mkOption {
         type = types.str;
       };
+
     };
   };
+
 in
 {
+
   options.wg-vpn.server = {
     enable = mkEnableOption "wireguard vpn server";
 
@@ -86,7 +91,6 @@ in
         ${cfg.interface.name} = {
           address = [ cfg.interface.ipv4.cidr ];
           inherit (cfg) listenPort privateKeyFile;
-          #privateKeyFile = "/root/wireguard-keys/private.key";
 
           postUp = ''
             ${pkgs.iptables}/bin/iptables -A FORWARD -i wg0 -j ACCEPT
@@ -103,17 +107,6 @@ in
             inherit (client) publicKey;
             allowedIPs = [ "${client.ipv4.address}/32" ];
           }) cfg.clients;
-          #peers = [
-          #  {
-          #    publicKey = "aEL1w5CRjzUXfSQB17lL6xa+CbGSR7VuOfGjSgG9JA4=";
-          #    allowedIPs = [ "10.0.0.2/32" ];
-          #  }
-
-          #  {
-          #    publicKey = "xE/QHqr/qvvsG8EWLTqkFrfSWcZhep03CFgtW3w+mVo=";
-          #    allowedIPs = [ "10.0.0.3/32" ];
-          #  }
-          #];
         };
       };
     };
@@ -121,9 +114,9 @@ in
     services = {
       dnsmasq = {
         enable = true;
-        extraConfig = ''
-          interface=wg0
-        '';
+        settings = {
+          interface = cfg.interface.name;
+        };
       };
     };
     };

@@ -11,6 +11,10 @@ in
   };
   
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      colorls
+    ];
+
     programs.zsh = {
       enable = true;
       enableAutosuggestions = true;
@@ -28,6 +32,9 @@ in
       };
       syntaxHighlighting = {
         enable = true;
+      };
+      shellAliases = {
+        l = "colorls -al";
       };
       plugins = [
         {

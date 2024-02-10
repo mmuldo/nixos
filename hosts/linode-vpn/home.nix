@@ -1,7 +1,7 @@
-{ pkgs, user, ... }:
+{ inputs, user, ... }:
 {
   imports = [
-      ../../modules/home
+      inputs.self.outputs.homeManagerModules.default
     ];
 
   # You should not change this value, even if you update Home Manager. If you do

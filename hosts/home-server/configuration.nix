@@ -1,19 +1,9 @@
-{ config, lib, pkgs, inputs, system, user, ... }:
+{ pkgs, user, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
-    #../../modules/nixos
   ];
-
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs;
-      inherit user;
-    };
-    users.${user.name} = import ./home.nix;
-  };
 
   boot.loader = {
     timeout = 0;
@@ -24,22 +14,13 @@
     };
   };
 
-  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Chicago";
 
   environment.systemPackages = with pkgs; [
-    git
     gcc
   ];
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  services.openssh.enable = true;
 
   wg-vpn.client = {
     enable = true;

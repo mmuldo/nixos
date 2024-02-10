@@ -22,14 +22,15 @@
 
   outputs = { self, nixpkgs, nixos-generators, ... }@inputs:
     let
-      mkSystem = config:
+      mkSystem = host:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs system user;
+            inherit inputs system user host;
           };
           modules = [
             self.nixosModules.default
-            config
+            self.nixosModules.hardware
+            ./hosts/${host}/configuration.nix
           ];
         };
 
@@ -48,8 +49,8 @@
     in
     {
       nixosConfigurations = {
-        home-server = mkSystem ./hosts/home-server/configuration.nix;
-        linode-vpn = mkSystem ./hosts/linode-vpn/configuration.nix;
+        home-server = mkSystem "home-server";
+        linode-vpn = mkSystem "linode-vpn";
       };
 
       packages.${system} = {
@@ -63,6 +64,7 @@
       };
 
       nixosModules.default = ./modules/nixos;
+      nixosModules.hardware = ./modules/hardware;
       homeManagerModules.default = ./modules/home;
     };
 }
