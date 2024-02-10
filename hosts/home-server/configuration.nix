@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     ../../modules/nixos
-    ../../modules/nixos/jellyfin.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -39,7 +38,6 @@
     git
     #ripgrep
     gcc
-    qbittorrent-nox
   ];
 
   programs.gnupg.agent = {
@@ -64,6 +62,8 @@
   };
 
   editors.neovim.enable = true;
+
+  media.enable = true;
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.

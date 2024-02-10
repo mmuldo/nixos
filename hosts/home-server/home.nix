@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   imports = [
+      ../../modules/home
       ../../modules/home/zsh
-      ../../modules/home/user.nix
     ];
 
   # You should not change this value, even if you update Home Manager. If you do
@@ -27,6 +27,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+  };
+
+  user = {
+    inherit (user) name fullName email;
   };
 
   # Let Home Manager install and manage itself.

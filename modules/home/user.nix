@@ -1,22 +1,48 @@
-{ user, ...}:
+{ lib, config, ...}:
+
+with lib;
+let
+  cfg = config.user;
+in
 {
-  home = {
-    username = user.name;
-    homeDirectory = "/home/" + user.name;
-    sessionVariables = {
-      EDITOR = "nvim";
+  options.user = {
+    name = mkOption {
+      type = types.str;
+    };
+
+    fullName = mkOption {
+      type = types.str;
+    };
+
+    email = mkOption {
+      type = types.str;
+    };
+
+    editor = mkOption {
+      type = types.str;
+      default = "nvim";
     };
   };
 
-  programs.git = {
-    enable = true;
-    includes = [{
-      contents = {
-        init.defaultBranch = "main";
-        core.editor = "nvim";
+  config = {
+    home = {
+      username = cfg.user.name;
+      homeDirectory = "/home/${cfg.user.name}";
+      sessionVariables = {
+        EDITOR = cfg.editor;
       };
-    }];
-    userName = user.fullName;
-    userEmail = user.email;
+    };
+
+    programs.git = {
+      enable = true;
+      includes = [{
+        contents = {
+          init.defaultBranch = "main";
+          core.editor = cfg.editor;
+        };
+      }];
+      userName = cfg.user.fullName;
+      userEmail = cfg.user.email;
+    };
   };
 }
