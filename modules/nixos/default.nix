@@ -6,6 +6,7 @@
     ./normal-users.nix
     ./wg-vpn
     ./media.nix
+    ./nerd-fonts.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
