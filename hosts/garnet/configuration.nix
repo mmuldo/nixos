@@ -44,6 +44,11 @@
 
   nerdFonts.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.alphabetical-app-grid
+    gnomeExtensions.hot-edge
+  ];
+
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.
   #
