@@ -50,6 +50,7 @@
       nixosConfigurations = {
         home-server = mkSystem "home-server";
         linode-vpn = mkSystem "linode-vpn";
+        garnet = mkSystem "garnet";
 
         # ex:
         #   $ nix build .#nixosConfigurations.iso.config.formats.linode
