@@ -13,15 +13,28 @@
 
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
-  # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    displayManager.lightdm.enable = true;
+
+    displayManager = {
+      gdm.enable = true;
+      autoLogin = {
+        enable = true;
+        user = user.name;
+      };
+      # this is gnome wayland
+      defaultSession = "gnome";
+    };
+
     desktopManager.gnome.enable = true;
   };
+
+  # needed to make autologin on gdm work
+  # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
 
   normal-users.${user.name} = {
     ssh.authorizedKeys = [];
