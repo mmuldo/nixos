@@ -11,7 +11,10 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.hostPlatform = lib.mkDefault system;
+  nixpkgs = {
+    config.allowUnfree = true;
+    hostPlatform = lib.mkDefault system;
+  };
 
   networking.hostName = host;
 

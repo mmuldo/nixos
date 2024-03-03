@@ -1,4 +1,4 @@
-{ inputs, user, ... }:
+{ inputs, user, config, ... }:
 let
   webDesktopEntry = { name, website ? "${name}.com" }: {
     inherit name;
@@ -30,31 +30,26 @@ in
 
   dconf = {
     enable = true;
-    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    settings = {
+      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      "org/gnome/desktop/background" =
+      let
+        pictureUri = "${config.home.homeDirectory}/.background-image";
+      in
+      {
+        picture-uri = pictureUri;
+        picture-uri-dark = pictureUri;
+      };
+    };
   };
 
   xdg.desktopEntries = builtins.listToAttrs (map webDesktopEntry [
-    { name = "netflix"; }
-    { name = "youtube"; }
+    { name = "crunchyroll"; }
     { name = "hulu"; }
+    { name = "netflix"; }
     { name = "streameast"; website = "streameast.xyz"; }
+    { name = "youtube"; }
   ] );
-
-  # xdg.desktopEntries = {
-  #   netflix = {
-  #     name = "Netflix";
-  #     exec = "firefox netflix.com";
-  #     terminal = false;
-  #     icon = "netflix2";
-  #   };
-
-  #   youtube = {
-  #     name = "YouTube";
-  #     exec = "firefox youtube.com";
-  #     terminal = false;
-  #     icon = "youtube";
-  #   };
-  # };
 
   xdg.dataFile = {
     icons = {
@@ -63,6 +58,8 @@ in
       source = ./icons;
     };
   };
+
+  home.file.".background-image".source = ../../wallpapers/stroll.png;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

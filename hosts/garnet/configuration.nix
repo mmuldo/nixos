@@ -6,8 +6,6 @@
     ./hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -36,6 +34,11 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
+
   normal-users.${user.name} = {
     ssh.authorizedKeys = [];
   };
@@ -47,6 +50,8 @@
   environment.systemPackages = with pkgs; [
     gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.hot-edge
+    jellyfin-media-player
+    spotify
   ];
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
