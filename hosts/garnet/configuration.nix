@@ -48,11 +48,32 @@
   nerdFonts.enable = true;
 
   environment.systemPackages = with pkgs; [
+    gnome.gnome-tweaks
     gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.hot-edge
+    gnomeExtensions.user-themes
     jellyfin-media-player
     spotify
   ];
+
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+    gedit # text editor
+  ]) ++ (with pkgs.gnome; [
+    cheese # webcam tool
+    gnome-music
+    #gnome-terminal
+    epiphany # web browser
+    geary # email reader
+    evince # document viewer
+    gnome-characters
+    totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+  ]);
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.

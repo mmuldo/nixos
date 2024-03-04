@@ -32,6 +32,7 @@ in
     enable = true;
     settings = {
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+
       "org/gnome/desktop/background" =
       let
         pictureUri = "${config.home.homeDirectory}/.background-image";
@@ -39,6 +40,13 @@ in
       {
         picture-uri = pictureUri;
         picture-uri-dark = pictureUri;
+      };
+
+      "org/gnome/desktop/screensaver".lock-enabled = false;
+      "org/gnome/desktop/session".idle-delay = "uint32 0";
+      "org/gnome/desktop/notifications" = {
+        show-banners = false;
+        show-in-lock-screen = false;
       };
     };
   };
@@ -59,7 +67,10 @@ in
     };
   };
 
-  home.file.".background-image".source = ../../wallpapers/stroll.png;
+  home.file = {
+    ".background-image".source = ../../wallpapers/tokyonight/gate.png;
+    ".themes".source = ./themes;
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
