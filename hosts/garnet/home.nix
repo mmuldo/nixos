@@ -1,5 +1,7 @@
-{ inputs, user, config, ... }:
+{ inputs, user, config, pkgs, ... }:
 let
+  weztermBackgroundImagePath = ".wallpapers/ryokan.png";
+
   webDesktopEntry = { name, website ? "${name}.com" }: {
     inherit name;
     value = {
@@ -26,7 +28,21 @@ in
 
   shells.zsh.enable = true;
 
+  terminal-emulators.wezterm = {
+    enable = true;
+    backgroundImagePath = "${config.home.homeDirectory}/${weztermBackgroundImagePath}";
+    colorScheme = "Tokyo Night";
+  };
+
   programs.firefox.enable = true;
+
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.tokyonight-gtk-theme;
+      name = "Tokyonight-Dark-B";
+    };
+  };
 
   dconf = {
     enable = true;
@@ -70,6 +86,7 @@ in
   home.file = {
     ".background-image".source = ../../wallpapers/tokyonight/gate.png;
     ".themes".source = ./themes;
+    ${weztermBackgroundImagePath}.source = ../../wallpapers/tokyonight/ryokan.png;
   };
 
   # Let Home Manager install and manage itself.
