@@ -50,6 +50,7 @@
       nixosConfigurations = {
         home-server = mkSystem "home-server";
         linode-vpn = mkSystem "linode-vpn";
+        opal = mkSystem "opal";
         garnet = mkSystem "garnet";
 
         # ex:
