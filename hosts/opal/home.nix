@@ -1,5 +1,4 @@
-
-{ inputs, user, config, pkgs, ... }:
+{ inputs, user, ... }:
 {
   imports = [
       inputs.self.outputs.homeManagerModules.default
@@ -15,6 +14,8 @@
   };
 
   shells.zsh.enable = true;
+
+  window-managers.hyprland.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

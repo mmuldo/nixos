@@ -13,7 +13,11 @@
 
   time.timeZone = "America/Los_Angeles";
 
-  programs.hyprland.enable = true;
+  security.polkit.enable = true;
+  #programs.hyprland = {
+  #  enable = true;
+  #  xwayland = true;
+  #};
 
   normal-users.${user.name} = {
     ssh.authorizedKeys = user.ssh.authorizedKeys;
@@ -22,6 +26,8 @@
   editors.neovim.enable = true;
 
   nerdFonts.enable = true;
+
+  pipewire.enable = true;
 
   environment.systemPackages = with pkgs; [
     kitty

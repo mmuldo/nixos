@@ -7,6 +7,7 @@
     ./wg-vpn
     ./media.nix
     ./nerd-fonts.nix
+    ./pipewire.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
