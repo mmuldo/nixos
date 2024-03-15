@@ -33,7 +33,6 @@
   pass.enable = true;
 
   environment.systemPackages = with pkgs; [
-    kitty
     brave
     swww
     mpvpaper

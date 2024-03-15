@@ -15,7 +15,11 @@
 
   shells.zsh.enable = true;
 
+  terminal-emulators.alacritty.enable = true;
+
   window-managers.hyprland.enable = true;
+
+  colorScheme = inputs.nix-colors.colorSchemes.rose-pine;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

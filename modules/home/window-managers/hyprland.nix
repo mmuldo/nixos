@@ -3,14 +3,25 @@
 with lib;
 let
   cfg = config.window-managers.hyprland;
-
-  mod = "super";
-  terminal = "kitty";
-  menu = "wofi --show drun";
 in
 {
   options.window-managers.hyprland = {
     enable = mkEnableOption "hyprland";
+
+    mod = mkOption {
+      type = types.str;
+      default = "super";
+    };
+
+    terminal = mkOption {
+      type = types.str;
+      default = "alacritty";
+    };
+
+    menu = mkOption {
+      type = types.str;
+      default = "wofi --show drun";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -68,22 +79,12 @@ in
           new_is_master = true;
         };
 
-        bind = [
+        bind = with cfg; [
           "${mod}, return, exec, ${terminal}"
           "${mod}, x, killactive"
           "${mod}, f, fullscreen"
           "${mod}, t, togglefloating"
           "${mod}, d, exec, ${menu}"
-
-          #"${mod}, h, movefocus, l"
-          #"${mod}, l, movefocus, r"
-          #"${mod}, k, movefocus, u"
-          #"${mod}, j, movefocus, d"
-
-          #"${mod} shift, h, movewindow, l"
-          #"${mod} shift, l, movewindow, r"
-          #"${mod} shift, k, movewindow, u"
-          #"${mod} shift, j, movewindow, d"
         ]
         ++ builtins.concatLists (builtins.attrValues (builtins.mapAttrs (key: action: [
           "${mod}, ${key}, movefocus, ${action}"
