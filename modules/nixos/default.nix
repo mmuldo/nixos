@@ -8,6 +8,7 @@
     ./media.nix
     ./nerd-fonts.nix
     ./pipewire.nix
+    ./pass.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -29,7 +30,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
       PermitRootLogin = lib.mkDefault "no";
     };
   };

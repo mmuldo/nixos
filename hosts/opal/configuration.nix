@@ -14,10 +14,11 @@
   time.timeZone = "America/Los_Angeles";
 
   security.polkit.enable = true;
-  #programs.hyprland = {
-  #  enable = true;
-  #  xwayland = true;
-  #};
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   normal-users.${user.name} = {
     ssh.authorizedKeys = user.ssh.authorizedKeys;
@@ -29,9 +30,13 @@
 
   pipewire.enable = true;
 
+  pass.enable = true;
+
   environment.systemPackages = with pkgs; [
     kitty
     brave
+    swww
+    mpvpaper
   ];
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
