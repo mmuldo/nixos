@@ -7,13 +7,18 @@ in
 {
   options.editors.neovim = {
     enable = mkEnableOption "personal neovim config";
+
+    colorscheme = mkOption {
+      type = types.str;
+      default = "default";
+    };
   };
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       # dependency for telescope.nvim
       ripgrep
-      inputs.mmuldo-neovim.packages.${system}.default
+      inputs.mmuldo-neovim.packages.${system}.${cfg.colorscheme}
     ];
   };
 }

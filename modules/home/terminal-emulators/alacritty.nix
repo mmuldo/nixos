@@ -47,7 +47,7 @@ in
           bold_italic = "Bold_Italic";
         };
 
-        colors = with config.colorScheme.colors; {
+        colors = with config.colorScheme.palette; {
           primary = {
             foreground = "#${base05}";
             background = "#${base00}";
