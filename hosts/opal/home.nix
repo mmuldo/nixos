@@ -21,6 +21,12 @@
 
   colorscheme = inputs.nix-colors.colorSchemes.rose-pine;
 
+  spicetify = {
+    enable = true;
+    theme = "Ziro";
+    colorscheme = "rose-pine";
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

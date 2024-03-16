@@ -20,6 +20,11 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
+
+    spicetify-nix = {
+      url = "github:the-argus/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixos-generators, ... }@inputs:
