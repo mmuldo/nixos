@@ -11,9 +11,7 @@ in
   };
   
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      colorls
-    ];
+    colorls.enable = true;
 
     programs.zsh = {
       enable = true;
@@ -34,6 +32,7 @@ in
         enable = true;
       };
       shellAliases = {
+        ls = "colorls";
         l = "colorls -al";
       };
       plugins = [

@@ -7,6 +7,7 @@
     ./window-managers
     inputs.nix-colors.homeManagerModules.default
     ./spicetify.nix
+    ./colorls.nix
   ];
 
   colorScheme = lib.mkDefault inputs.nix-colors.colorSchemes.rose-pine;
