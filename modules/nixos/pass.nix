@@ -12,13 +12,13 @@ in
       flavor = mkOption {
         type = types.str;
         description = "gpg pinentry flavor for entering password";
-        default = "curses";
+        default = "gtk2";
       };
 
       package = mkOption {
         type = types.package;
         description = "pinentry package which includes pinentry flavor";
-        default = pkgs.pinentry-curses;
+        default = pkgs.pinentry-gtk2;
       };
     };
   };
