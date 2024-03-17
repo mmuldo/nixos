@@ -17,7 +17,10 @@
 
   terminal-emulators.alacritty.enable = true;
 
-  window-managers.hyprland.enable = true;
+  window-managers.hyprland = {
+    enable = true;
+    wallpaperPath = ../../wallpapers/rose-pine/mario.gif;
+  };
 
   colorscheme = inputs.nix-colors.colorSchemes.rose-pine;
 

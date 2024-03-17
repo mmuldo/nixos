@@ -22,6 +22,11 @@ in
       type = types.str;
       default = "wofi --show drun";
     };
+
+    wallpaperPath = mkOption {
+      type = with types; nullOr path;
+      default = null;
+    };
   };
 
   config = mkIf cfg.enable {
@@ -33,6 +38,11 @@ in
       settings = {
         env = [
           "XCURSOR_SIZE,24"
+        ];
+
+        exec-once = mkIf (cfg.wallpaperPath != null) [
+          "swww init"
+          "swww ${cfg.wallpaperPath}"
         ];
 
         input = {
