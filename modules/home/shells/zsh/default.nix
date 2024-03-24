@@ -15,7 +15,7 @@ in
 
     programs.zsh = {
       enable = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       enableCompletion = true;
       initExtra = ''
         zvm_after_init_commands+=("bindkey -M viins '^ ' autosuggest-accept")
