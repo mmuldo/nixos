@@ -42,7 +42,7 @@ in
 
         exec-once = mkIf (cfg.wallpaperPath != null) [
           "swww init"
-          "swww ${cfg.wallpaperPath}"
+          "swww img ${cfg.wallpaperPath}"
         ];
 
         input = {

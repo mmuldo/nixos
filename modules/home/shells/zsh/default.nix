@@ -34,6 +34,8 @@ in
       shellAliases = {
         ls = "colorls";
         l = "colorls -al";
+        nvim-test = "rm -rf ~/.config/nvim && cp -r -t ~/.config ~/flakes/nixos/modules/home/editors/neovim/nvim && nvim";
+        nrso = "rm -rf ~/.config/nvim && sudo nixos-rebuild switch --flake ~/flakes/nixos#opal";
       };
       plugins = [
         {

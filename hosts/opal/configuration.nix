@@ -24,10 +24,10 @@
     ssh.authorizedKeys = user.ssh.authorizedKeys;
   };
 
-  editors.neovim = {
-    enable = true;
-    colorscheme = "rose-pine";
-  };
+  #editors.neovim = {
+  #  enable = true;
+  #  colorscheme = "rose-pine";
+  #};
 
   nerdFonts.enable = true;
 
