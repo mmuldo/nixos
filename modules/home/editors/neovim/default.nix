@@ -29,8 +29,13 @@ in
       enable = true;
 
       extraPackages = with pkgs; [
+        # dependencies
         wl-clipboard
         ripgrep
+
+        # language servers
+        lua-language-server
+        nixd
       ];
 
       plugins = [
@@ -40,6 +45,14 @@ in
         pkgs.vimPlugins.plenary-nvim
         pkgs.vimPlugins.telescope-nvim
         pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+        pkgs.vimPlugins.neodev-nvim
+        pkgs.vimPlugins.nvim-lspconfig
+        pkgs.vimPlugins.cmp-nvim-lsp
+        pkgs.vimPlugins.nvim-cmp
+        pkgs.vimPlugins.luasnip
+        pkgs.vimPlugins.cmp_luasnip
+        pkgs.vimPlugins.cmp_luasnip
+        pkgs.vimPlugins.cmp-path
       ];
 
       withNodeJs = true;

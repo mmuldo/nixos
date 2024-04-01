@@ -43,6 +43,8 @@ in
         exec-once = mkIf (cfg.wallpaperPath != null) [
           "swww init"
           "swww img ${cfg.wallpaperPath}"
+
+          "waybar &"
         ];
 
         input = {
