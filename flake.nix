@@ -58,6 +58,7 @@
         linode-vpn = mkSystem "linode-vpn";
         opal = mkSystem "opal";
         garnet = mkSystem "garnet";
+        sugilite = mkSystem "sugilite";
 
         # ex:
         #   $ nix build .#nixosConfigurations.iso.config.formats.linode
