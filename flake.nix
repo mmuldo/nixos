@@ -48,8 +48,7 @@
         email = "matt.muldowney@gmail.com";
         fullName = "Matt Muldowney";
         ssh.authorizedKeys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAFqoz4bLdcGPcHunnhqT1mc2VaCZnbAluJtd6Vyp2MK matt.muldowney@gmail.com"
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID6jKTS+9HYMQH6yrsasc2RahHHjd3mwe6KCNz8xWTtB matt.muldowney@gmail.com"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICCNDIBIA6zcf8J13vBl9jqMyd/bHqgLCh3W/uNe9v9l matt.muldowney@gmail.com"
         ];
       };
     in
