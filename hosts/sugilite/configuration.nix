@@ -33,6 +33,10 @@
     ssh.authorizedKeys = user.ssh.authorizedKeys;
   };
 
+  users.users.root.openssh.authorizedKeys.keys = user.ssh.authorizedKeys;
+
+  services.openssh.settings.PermitRootLogin = "prohibit-password";
+
   #editors.neovim.enable = true;
 
   #media.enable = true;
