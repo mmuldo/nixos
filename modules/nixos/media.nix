@@ -34,12 +34,6 @@ in
       openFirewall = true;
     };
 
-    systemd.tmpfiles.rules = map (path: "d ${path} 0755 ${cfg.user} ${cfg.group}") [
-      "/media"
-      "/media/shows"
-      "/media/movies"
-    ];
-
     # TODO: script for copying qbittorrent results to media
 
     # TODO: qbittorrent configuration

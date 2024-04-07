@@ -8,6 +8,10 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  environment.systemPackages = with pkgs; [
+    mergerfs
+  ];
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
@@ -22,6 +26,22 @@
     { device = "/dev/disk/by-uuid/BC48-C5A8";
       fsType = "vfat";
     };
+
+  fileSystems."/mnt/media1" = {
+    device = "/dev/disk/by-label/media1";
+    fsType = "ext4";
+  };
+
+  fileSystems."/mnt/media2" = {
+    device = "/dev/disk/by-label/media2";
+    fsType = "ext4";
+  };
+
+  fileSystems."/media" = {
+    fsType = "fuse.mergerfs";
+    device = "/mnt/media*";
+    options = ["cache.files=partial" "dropcacheonclose=true" "category.create=mfs"];
+  };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/d8fa430d-ccfc-43cf-8478-10604f7377a8"; }

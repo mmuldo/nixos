@@ -9,7 +9,7 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  programs.neovim.enable = true;
+  editors.neovim.enable = true;
 
   user = {
     inherit (user) name fullName email;
