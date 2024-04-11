@@ -1,5 +1,0 @@
-@define-color green #00FF00;
-
-#workspaces button.active {
-  color: @green;
-}
