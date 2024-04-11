@@ -1,5 +1,5 @@
 # personal workstation
-{ pkgs, user, ... }:
+{ pkgs, user, inputs, system, ... }:
 
 {
   imports = [
@@ -35,10 +35,14 @@
 
   pass.enable = true;
 
+  dropbox.enable = true;
+
   environment.systemPackages = with pkgs; [
     brave
     swww
     mpvpaper
+    inputs.agenix.packages.${system}.default
+    killall
   ];
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,

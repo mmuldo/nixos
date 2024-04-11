@@ -19,27 +19,26 @@
     gcc
   ];
 
-  #wg-vpn.client = {
-  #  enable = true;
-  #  interface.ipv4.address = "10.0.0.3";
-  #  privateKeyFile = "/root/wireguard-keys/private.key";
-  #  server = {
-  #    publicKey = "ViM1WXRmG4HL4eFbGw6s1EqiND7KXtLiE1h4kosMdw0=";
-  #    ipv4.publicAddress = "172.234.95.55";
-  #  };
-  #};
+  wg-vpn = {
+    enable = true;
+
+    client = {
+      enable = true;
+      server = {
+        publicKey = "fVm8OYWhwqFRr9QCQO4W/TDxUaEBCL6brXfnTXqhODw=";
+        ipv4.publicAddress = "45.79.82.159";
+      };
+    };
+  };
 
   normal-users.${user.name} = {
     ssh.authorizedKeys = user.ssh.authorizedKeys;
   };
 
   users.users.root.openssh.authorizedKeys.keys = user.ssh.authorizedKeys;
-
   services.openssh.settings.PermitRootLogin = "prohibit-password";
 
-  #editors.neovim.enable = true;
-
-  #media.enable = true;
+  media.enable = true;
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.

@@ -7,20 +7,18 @@
     allowedTCPPorts = [ 22 ];
   };
 
-  wg-vpn.server = {
+  wg-vpn = {
     enable = true;
-    privateKeyFile = "/root/wireguard-keys/private.key";
-    clients = [
-      {
-        publicKey = "aEL1w5CRjzUXfSQB17lL6xa+CbGSR7VuOfGjSgG9JA4=";
-        ipv4.address = "10.0.0.2";
-      }
 
-      {
-        publicKey = "xE/QHqr/qvvsG8EWLTqkFrfSWcZhep03CFgtW3w+mVo=";
-        ipv4.address = "10.0.0.3";
-      }
-    ];
+    server = {
+      enable = true;
+      clients = [
+        {
+          publicKey = "MFFpTflw19GcAVebqYN0H9MBUEmonVStDz6660BK1wc=";
+          ipv4.address = "10.0.0.2";
+        }
+      ];
+    };
   };
 
   normal-users.${user.name} = {
