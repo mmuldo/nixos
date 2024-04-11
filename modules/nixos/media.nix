@@ -5,6 +5,10 @@ let
   cfg = config.media;
 in
 {
+  imports = [
+    ./transmission.nix
+  ];
+
   options.media = {
     enable = mkEnableOption "media server functionality";
 
@@ -26,7 +30,6 @@ in
       jellyfin
       jellyfin-web
       jellyfin-ffmpeg
-      qbittorrent-nox
     ];
 
     services.jellyfin = {
@@ -34,8 +37,6 @@ in
       openFirewall = true;
     };
 
-    # TODO: script for copying qbittorrent results to media
-
-    # TODO: qbittorrent configuration
+    transmission.enable = true;
   };
 }

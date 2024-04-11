@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.default
+    inputs.agenix.nixosModules.default
     ./editors
     ./normal-users.nix
     ./wg-vpn
@@ -9,6 +10,7 @@
     ./nerd-fonts.nix
     ./pipewire.nix
     ./pass.nix
+    ./dropbox.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -30,7 +32,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      PasswordAuthentication = true;
+      PasswordAuthentication = false;
       PermitRootLogin = lib.mkDefault "no";
     };
   };
