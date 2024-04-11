@@ -65,10 +65,6 @@ in
       };
     };
 
-    privateKeyFile = mkOption {
-      type = types.path;
-    };
-
     clients = mkOption {
       type = with types; listOf (submodule clientOpts);
       default = [];
@@ -90,7 +86,8 @@ in
       wg-quick.interfaces = {
         ${cfg.interface.name} = {
           address = [ cfg.interface.ipv4.cidr ];
-          inherit (cfg) listenPort privateKeyFile;
+          inherit (cfg) listenPort;
+          inherit (config.wg-vpn) privateKeyFile;
 
           postUp = ''
             ${pkgs.iptables}/bin/iptables -A FORWARD -i wg0 -j ACCEPT

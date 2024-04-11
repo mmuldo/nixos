@@ -20,10 +20,6 @@ in
       };
     };
 
-    privateKeyFile = mkOption {
-      type = types.path;
-    };
-
     server = {
       ipv4 = {
         privateAddress = mkOption {
@@ -61,7 +57,7 @@ in
       ${cfg.interface.name} = {
         address = [ cfg.interface.ipv4.address ];
         dns = [ cfg.server.ipv4.privateAddress ];
-        inherit (cfg) privateKeyFile;
+        inherit (config.wg-vpn) privateKeyFile;
 
         peers = [
           {
