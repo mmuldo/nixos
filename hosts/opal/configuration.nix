@@ -37,8 +37,6 @@
 
   dropbox.enable = true;
 
-  transmission.enable = true;
-
   wg-vpn = {
     enable = false;
 
