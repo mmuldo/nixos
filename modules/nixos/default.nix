@@ -6,6 +6,7 @@
     ./editors
     ./normal-users.nix
     ./wg-vpn
+    ./torrent-clients
     ./media.nix
     ./nerd-fonts.nix
     ./pipewire.nix

@@ -45,7 +45,7 @@ let
     {
       target = "#network";
       borderColor = "@base0D";
-      backgroundColor = "@base03";
+      backgroundColor = "@base05";
     }
     
     {

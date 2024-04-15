@@ -17,6 +17,10 @@
           publicKey = "MFFpTflw19GcAVebqYN0H9MBUEmonVStDz6660BK1wc=";
           ipv4.address = "10.0.0.2";
         }
+        {
+          publicKey = "fsxv/i/HuTvsYEy2wKVOaNSXuOWPn9b/Y0WfO5lQbxc=";
+          ipv4.address = "10.0.0.3";
+        }
       ];
     };
   };

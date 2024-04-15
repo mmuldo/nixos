@@ -37,6 +37,21 @@
 
   dropbox.enable = true;
 
+  transmission.enable = true;
+
+  wg-vpn = {
+    enable = false;
+
+    client = {
+      enable = false;
+      interface.ipv4.address= "10.0.0.3";
+      server = {
+        publicKey = "fVm8OYWhwqFRr9QCQO4W/TDxUaEBCL6brXfnTXqhODw=";
+        ipv4.publicAddress = "45.79.82.159";
+      };
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     brave
     swww

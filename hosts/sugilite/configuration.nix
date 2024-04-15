@@ -36,6 +36,7 @@
   };
 
   users.users.root.openssh.authorizedKeys.keys = user.ssh.authorizedKeys;
+
   services.openssh.settings.PermitRootLogin = "prohibit-password";
 
   media.enable = true;

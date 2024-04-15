@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    ./transmission.nix
+    ./torrent-clients
   ];
 
   options.media = {
@@ -37,6 +37,6 @@ in
       openFirewall = true;
     };
 
-    transmission.enable = true;
+    torrent-clients.qbittorrent.enable = true;
   };
 }
