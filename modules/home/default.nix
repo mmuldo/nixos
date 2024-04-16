@@ -3,6 +3,7 @@
   imports = [
     ./user.nix
     ./shells
+    ./menus
     ./terminal-emulators
     ./window-managers
     inputs.nix-colors.homeManagerModules.default

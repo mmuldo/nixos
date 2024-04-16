@@ -1,4 +1,4 @@
-{ inputs, user, config, ... }:
+{ inputs, user, config, pkgs, ... }:
 {
   imports = [
     inputs.self.outputs.homeManagerModules.default
@@ -33,6 +33,14 @@
   editors.neovim.enable = true;
 
   bars.waybar.enable = true;
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "rose-pine";
+      package = pkgs.rose-pine-gtk-theme;
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

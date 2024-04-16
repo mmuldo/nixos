@@ -5,10 +5,6 @@ let
   cfg = config.media;
 in
 {
-  imports = [
-    ./torrent-clients
-  ];
-
   options.media = {
     enable = mkEnableOption "media server functionality";
 

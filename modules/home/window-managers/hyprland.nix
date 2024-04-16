@@ -20,7 +20,12 @@ in
 
     menu = mkOption {
       type = types.str;
-      default = "wofi --show drun";
+      default = "rofi";
+    };
+
+    passmenu = mkOption {
+      type = types.str;
+      default = "ROFI_PASS_BACKEND=wtype ROFI_PASS_CLIPBOARD_BACKEND=wl-clipboard rofi-pass";
     };
 
     wallpaperPath = mkOption {
@@ -96,7 +101,10 @@ in
           "${mod}, x, killactive"
           "${mod}, f, fullscreen"
           "${mod}, t, togglefloating"
-          "${mod}, d, exec, ${menu}"
+          "${mod}, d, exec, ${menu} -filebrowser-show-hidden true -show drun"
+          "${mod}, s, exec, ${menu} -filebrowser-show-hidden true -show ssh"
+          "${mod}, o, exec, ${menu} -show power-menu -modi power-menu:${menu}-power-menu"
+          "${mod}, p, exec, ${passmenu}"
         ]
         ++ builtins.concatLists (builtins.attrValues (builtins.mapAttrs (key: action: [
           "${mod}, ${key}, movefocus, ${action}"
@@ -114,9 +122,12 @@ in
       };
     };
 
+    menus.rofi.enable = true;
+
     home.packages = with pkgs; [
-      wofi
       wl-clipboard
+      wtype
+      xdg-utils
     ];
   };
 }
