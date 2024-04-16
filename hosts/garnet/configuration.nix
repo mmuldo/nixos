@@ -40,10 +40,12 @@
   systemd.targets.hybrid-sleep.enable = false;
 
   normal-users.${user.name} = {
-    ssh.authorizedKeys = [];
+    ssh.authorizedKeys = user.ssh.authorizedKeys;
   };
 
-  editors.neovim.enable = true;
+  users.users.root.openssh.authorizedKeys.keys = user.ssh.authorizedKeys;
+
+  services.openssh.settings.PermitRootLogin = "prohibit-password";
 
   nerdFonts.enable = true;
 
