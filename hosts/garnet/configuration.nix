@@ -51,6 +51,7 @@
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
+    gnome.gnome-settings-daemon
     gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.hot-edge
     gnomeExtensions.user-themes

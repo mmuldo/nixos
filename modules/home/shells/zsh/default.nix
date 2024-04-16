@@ -38,6 +38,7 @@ in
         onrs = "sudo nixos-rebuild switch --flake ~/flakes/nixos#opal";
         snrs = "nixos-rebuild switch --flake ~/flakes/nixos#sugilite --target-host rootsugilite --build-host localhost";
         pnrs = "nixos-rebuild switch --flake ~/flakes/nixos#peridot --target-host rootperidot --build-host localhost";
+        gnrs = "nixos-rebuild switch --flake ~/flakes/nixos#garnet --target-host rootgarnet --build-host localhost";
         flip = "return $(( $(od -vAn -N1 -t u1 < /dev/random) >> 7 ))";
         gs = "git status";
       };

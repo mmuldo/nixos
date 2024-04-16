@@ -58,11 +58,21 @@ in
         picture-uri-dark = pictureUri;
       };
 
-      "org/gnome/desktop/screensaver".lock-enabled = false;
+      "org/gnome/desktop/screensaver" = {
+        lock-enabled = false;
+        idle-activation-enabled = false;
+      };
       "org/gnome/desktop/session".idle-delay = "uint32 0";
       "org/gnome/desktop/notifications" = {
         show-banners = false;
         show-in-lock-screen = false;
+      };
+
+      "org/gnome/settings-daemon/plugins/power" = {
+        ambient-enabled = false;
+        idle-dim = false;
+        sleep-inactive-ac-type = "nothing";
+        sleep-inactive-ac-timeout = 0;
       };
     };
   };
