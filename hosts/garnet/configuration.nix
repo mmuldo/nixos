@@ -17,7 +17,10 @@
     enable = true;
 
     displayManager = {
-      gdm.enable = true;
+      gdm = {
+        enable = true;
+        autoSuspend = false;
+      };
       autoLogin = {
         enable = true;
         user = user.name;
@@ -55,6 +58,7 @@
     gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.hot-edge
     gnomeExtensions.user-themes
+    gnomeExtensions.caffeine
     jellyfin-media-player
     spotify
   ];
