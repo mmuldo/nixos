@@ -57,6 +57,7 @@
     inputs.agenix.packages.${system}.default
     killall
     mpv
+    anki-bin
   ];
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
