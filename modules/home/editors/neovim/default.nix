@@ -36,6 +36,7 @@ in
         # language servers
         lua-language-server
         nixd
+        rust-analyzer
       ];
 
       plugins = [
@@ -53,6 +54,7 @@ in
         pkgs.vimPlugins.cmp_luasnip
         pkgs.vimPlugins.cmp_luasnip
         pkgs.vimPlugins.cmp-path
+        pkgs.vimPlugins.rustaceanvim
       ];
 
       withNodeJs = true;

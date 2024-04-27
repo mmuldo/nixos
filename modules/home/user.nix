@@ -31,6 +31,10 @@ in
       sessionVariables = {
         EDITOR = cfg.editor;
       };
+      sessionPath = [
+        "$HOME/.local/bin"
+        "$HOME/.cargo/bin"
+      ];
     };
 
     programs.git = {
