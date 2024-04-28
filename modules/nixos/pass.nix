@@ -6,7 +6,7 @@ let
 in
 {
   options.pass = {
-    enable = mkEnableOption "pipewire audio backend";
+    enable = mkEnableOption "pass for unix";
 
     pinentryPackage = mkOption {
       type = types.package;

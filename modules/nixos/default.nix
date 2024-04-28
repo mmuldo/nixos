@@ -12,6 +12,7 @@
     ./pipewire.nix
     ./pass.nix
     ./dropbox.nix
+    ./daw.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

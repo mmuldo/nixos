@@ -50,6 +50,8 @@
     };
   };
 
+  daw.enable = true;
+
   environment.systemPackages = with pkgs; [
     brave
     swww

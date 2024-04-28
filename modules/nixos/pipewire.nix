@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 with lib;
 let
@@ -20,5 +20,9 @@ in
       pulse.enable = true;
       jack.enable = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      helvum
+    ];
   };
 }
