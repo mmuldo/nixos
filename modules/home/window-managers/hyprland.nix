@@ -119,6 +119,11 @@ in
           "${mod}, ${toString n}, workspace, ${toString (if n == 0 then 10 else n)}"
           "${mod} shift, ${toString n}, movetoworkspace, ${toString (if n == 0 then 10 else n)}"
         ]) [1 2 3 4 5 6 7 8 9 0];
+
+        bindm = with cfg; [
+          "${mod}, mouse:272, movewindow"
+          "${mod}, mouse:273, resizewindow"
+        ];
       };
     };
 
