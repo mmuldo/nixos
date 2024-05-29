@@ -11,6 +11,7 @@
     ./colorls.nix
     ./editors
     ./bars
+    ./cava.nix
   ];
 
   colorScheme = lib.mkDefault inputs.nix-colors.colorSchemes.rose-pine;

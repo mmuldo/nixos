@@ -30,6 +30,8 @@
     colorscheme = "rose-pine";
   };
 
+  cava.enable = true;
+
   editors.neovim.enable = true;
 
   bars.waybar.enable = true;
