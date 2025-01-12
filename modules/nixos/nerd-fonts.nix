@@ -7,16 +7,11 @@ in
 {
   options.nerdFonts = {
     enable = mkEnableOption "nerd fonts";
-
-    fonts = mkOption {
-      type = with types; listOf str;
-      default = [ "Hack" ];
-    };
   };
 
   config = mkIf cfg.enable {
-    fonts.packages = with pkgs; [
-      (nerdfonts.override { inherit (cfg) fonts; })
+    fonts.packages = with pkgs.nerd-fonts; [
+      hack
     ];
   };
 }

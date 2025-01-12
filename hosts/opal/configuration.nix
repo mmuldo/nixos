@@ -24,11 +24,6 @@
     ssh.authorizedKeys = user.ssh.authorizedKeys;
   };
 
-  #editors.neovim = {
-  #  enable = true;
-  #  colorscheme = "rose-pine";
-  #};
-
   nerdFonts.enable = true;
 
   pipewire.enable = true;
@@ -51,6 +46,10 @@
   };
 
   daw.enable = true;
+
+  games.enable = true;
+
+  languages.bengali.enable = true;
 
   environment.systemPackages = with pkgs; [
     brave

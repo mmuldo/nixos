@@ -93,8 +93,6 @@ in
     };
   };
 
-  editors.neovim.enable = true;
-
   home.file = {
     ".background-image".source = ../../wallpapers/tokyonight/gate.png;
     ".themes".source = ./themes;

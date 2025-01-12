@@ -36,8 +36,6 @@
     ssh.authorizedKeys = user.ssh.authorizedKeys;
   };
 
-  editors.neovim.enable = true;
-
   media.enable = true;
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,

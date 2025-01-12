@@ -19,20 +19,18 @@
 
   window-managers.hyprland = {
     enable = true;
-    wallpaperPath = ../../wallpapers/rose-pine/mario.gif;
+    wallpaperPath = ../../wallpapers/dracula/nightmare-before-christmas-schreme.gif;
   };
 
-  colorscheme = inputs.nix-colors.colorSchemes.rose-pine;
+  colorscheme = inputs.nix-colors.colorSchemes.dracula;
 
   spicetify = {
     enable = true;
-    theme = "Ziro";
-    colorscheme = "rose-pine";
+    theme = "catppuccin";
+    colorscheme = "mocha";
   };
 
   cava.enable = true;
-
-  editors.neovim.enable = true;
 
   bars.waybar.enable = true;
 
@@ -43,6 +41,8 @@
       package = pkgs.rose-pine-gtk-theme;
     };
   };
+
+  zathura.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

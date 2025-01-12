@@ -9,9 +9,9 @@
     inputs.nix-colors.homeManagerModules.default
     ./spicetify.nix
     ./colorls.nix
-    ./editors
     ./bars
     ./cava.nix
+    ./zathura.nix
   ];
 
   colorScheme = lib.mkDefault inputs.nix-colors.colorSchemes.rose-pine;

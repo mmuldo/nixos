@@ -45,11 +45,16 @@ in
           "XCURSOR_SIZE,24"
         ];
 
-        exec-once = mkIf (cfg.wallpaperPath != null) [
-          "swww init"
-          "swww img ${cfg.wallpaperPath}"
+        exec-once = mkMerge [
+          (mkIf (cfg.wallpaperPath != null) [
+             "swww init"
+             "swww img ${cfg.wallpaperPath}"
+          ])
 
-          "waybar &"
+          [
+            "which ibus-daemon && ibus-daemon -rxRd"
+            "waybar &"
+          ]
         ];
 
         input = {
@@ -93,7 +98,7 @@ in
         };
 
         master = {
-          new_is_master = true;
+          new_status = "master";
         };
 
         bind = with cfg; [
@@ -105,6 +110,7 @@ in
           "${mod}, s, exec, ${menu} -filebrowser-show-hidden true -show ssh"
           "${mod}, o, exec, ${menu} -show power-menu -modi power-menu:${menu}-power-menu"
           "${mod}, p, exec, ${passmenu}"
+          "${mod}, b, exec, if [ \"$(ibus engine)\" = 'OpenBangla' ]; then ibus engine xkb:us::eng; else ibus engine OpenBangla; fi"
         ]
         ++ builtins.concatLists (builtins.attrValues (builtins.mapAttrs (key: action: [
           "${mod}, ${key}, movefocus, ${action}"
@@ -127,7 +133,10 @@ in
       };
     };
 
-    menus.rofi.enable = true;
+    menus.rofi = {
+      enable = true;
+      backgroundImagePath = ../../../wallpapers/gruvbox/mister-rogers-trolley.jpg;
+    };
 
     home.packages = with pkgs; [
       wl-clipboard

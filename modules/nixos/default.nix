@@ -3,7 +3,7 @@
   imports = [
     inputs.home-manager.nixosModules.default
     inputs.agenix.nixosModules.default
-    ./editors
+    ./languages
     ./normal-users.nix
     ./wg-vpn
     ./torrent-clients
@@ -13,6 +13,7 @@
     ./pass.nix
     ./dropbox.nix
     ./daw.nix
+    ./games.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

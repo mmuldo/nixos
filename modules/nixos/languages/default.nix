@@ -1,5 +1,5 @@
 {
   imports = [
-    ./neovim
+    ./bengali.nix
   ];
 }
