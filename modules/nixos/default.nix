@@ -14,6 +14,7 @@
     ./dropbox.nix
     ./daw.nix
     ./games.nix
+    ./neovim.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

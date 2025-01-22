@@ -49,6 +49,8 @@
 
   games.enable = true;
 
+  neovim.enable = true;
+
   languages.bengali.enable = true;
 
   environment.systemPackages = with pkgs; [
