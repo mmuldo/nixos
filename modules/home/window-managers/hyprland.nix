@@ -30,7 +30,7 @@ in
 
     wallpaperPath = mkOption {
       type = with types; nullOr path;
-      default = null;
+      default = config.stylix.image;
     };
   };
 
@@ -72,8 +72,6 @@ in
           gaps_in = 5;
           gaps_out = 20;
           border_size = 2;
-          "col.active_border" = "rgba(${config.colorscheme.palette.base08}ee) rgba(${config.colorscheme.palette.base0A}ee) 45deg";
-          "col.inactive_border" = "rgba(${config.colorscheme.palette.base03}aa)";
           layout = "master";
           allow_tearing = false;
         };
@@ -135,7 +133,7 @@ in
 
     menus.rofi = {
       enable = true;
-      backgroundImagePath = ../../../wallpapers/gruvbox/mister-rogers-trolley.jpg;
+      backgroundImagePath = ../../../wallpapers/catppuccin/default.png;
     };
 
     home.packages = with pkgs; [

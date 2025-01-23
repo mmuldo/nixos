@@ -3,6 +3,7 @@
   imports = [
     inputs.home-manager.nixosModules.default
     inputs.agenix.nixosModules.default
+    inputs.stylix.nixosModules.stylix ../../hosts/${host}/configuration.nix
     ./languages
     ./normal-users.nix
     ./wg-vpn

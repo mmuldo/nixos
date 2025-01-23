@@ -62,8 +62,8 @@ let
     
     {
       target = "#workspaces";
-      borderColor = "@base0B";
-      backgroundColor = "@base0C";
+      borderColor = "@base02";
+      backgroundColor = "@base03";
     }
     
     {
@@ -91,7 +91,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.waybar = with config.colorscheme.palette; {
+    programs.waybar = {
       enable = true;
 
       settings.mainBar = {
@@ -178,27 +178,9 @@ in
         };
       };
 
-      style = ''
-        @define-color background rgba(${inputs.nix-colors.lib.conversions.hexToRGBString ", " base00}, 0.75);
-        @define-color base00 #${base00};
-        @define-color base01 #${base01};
-        @define-color base02 #${base02};
-        @define-color base03 #${base03};
-        @define-color base04 #${base04};
-        @define-color base05 #${base05};
-        @define-color base06 #${base06};
-        @define-color base07 #${base07};
-        @define-color base08 #${base08};
-        @define-color base09 #${base09};
-        @define-color base0A #${base0A};
-        @define-color base0B #${base0B};
-        @define-color base0C #${base0C};
-        @define-color base0D #${base0D};
-        @define-color base0E #${base0E};
-        @define-color base0F #${base0F};
-        
+      style = mkForce ''
         * {
-            font-family: "Hack Nerd Font";
+            font-family: "${config.stylix.fonts.monospace.name}";
             font-weight: bold;
             border-radius: 10px;
             padding: 0 5px;
@@ -222,12 +204,13 @@ in
         
         #workspaces button {
             border-radius: 10px;
+            color: @base06;
         }
         
         #workspaces button.active {
-            background: @base0B;
-            color: @base05;
-            border: 3px solid @base05;
+            background: @base07;
+            color: @base02;
+            border: 3px solid @base02;
         }
       '';
     };

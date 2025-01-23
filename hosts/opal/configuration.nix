@@ -1,7 +1,11 @@
 # personal workstation
-{ pkgs, user, inputs, system, ... }:
-
 {
+  pkgs,
+  user,
+  inputs,
+  system,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -37,7 +41,7 @@
 
     client = {
       enable = false;
-      interface.ipv4.address= "10.0.0.3";
+      interface.ipv4.address = "10.0.0.3";
       server = {
         publicKey = "fVm8OYWhwqFRr9QCQO4W/TDxUaEBCL6brXfnTXqhODw=";
         ipv4.publicAddress = "45.79.82.159";
@@ -52,6 +56,23 @@
   neovim.enable = true;
 
   languages.bengali.enable = true;
+
+  stylix = {
+    enable = true;
+    image = ../../wallpapers/catppuccin/four-eyed-cat.jpg;
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMonoNerdFontMono";
+      };
+    };
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     brave
@@ -69,4 +90,3 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "23.11"; # Did you read the comment?
 }
-

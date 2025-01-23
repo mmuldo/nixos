@@ -19,7 +19,6 @@
 
   window-managers.hyprland = {
     enable = true;
-    wallpaperPath = ../../wallpapers/dracula/nightmare-before-christmas-schreme.gif;
   };
 
   colorscheme = inputs.nix-colors.colorSchemes.dracula;
@@ -27,20 +26,13 @@
   spicetify = {
     enable = true;
     theme = "catppuccin";
-    colorscheme = "mocha";
   };
 
   cava.enable = true;
 
   bars.waybar.enable = true;
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = "rose-pine";
-      package = pkgs.rose-pine-gtk-theme;
-    };
-  };
+  gtk.enable = true;
 
   zathura.enable = true;
 

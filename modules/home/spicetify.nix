@@ -27,8 +27,6 @@ in
 
     programs.spicetify = {
       enable = true;
-      theme = spicePkgs.themes.${cfg.theme};
-      colorScheme = cfg.colorscheme;
     };
   };
 }
