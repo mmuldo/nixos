@@ -50,22 +50,6 @@
 
   services.openssh.settings.PermitRootLogin = "prohibit-password";
 
-  stylix = {
-    enable = true;
-    image = ../../wallpapers/tokyonight/gate.png;
-    polarity = "dark";
-    fonts = {
-      monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMonoNerdFontMono";
-      };
-    };
-    #cursor = {
-    #  package = pkgs.bibata-cursors;
-    #  name = "Bibata-Modern-Ice";
-    #};
-  };
-
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     gnome-settings-daemon

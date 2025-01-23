@@ -1,5 +1,7 @@
 { inputs, user, config, pkgs, ... }:
 let
+  weztermBackgroundImagePath = ".wallpapers/ryokan.png";
+
   webDesktopEntry = { name, website ? "${name}.com" }: {
     inherit name;
     value = {
@@ -22,21 +24,39 @@ in
 
   user = {
     inherit (user) name fullName email;
-    sessionPath = [];
   };
 
   shells.zsh.enable = true;
 
-  terminal-emulators.alacritty.enable = true;
+  terminal-emulators.wezterm = {
+    enable = true;
+    backgroundImagePath = "${config.home.homeDirectory}/${weztermBackgroundImagePath}";
+    colorScheme = "Tokyo Night";
+  };
 
   programs.firefox.enable = true;
 
-  gtk.enable = true;
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.tokyonight-gtk-theme;
+      name = "Tokyonight-Dark-B";
+    };
+  };
 
   dconf = {
     enable = true;
     settings = {
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+
+      "org/gnome/desktop/background" =
+      let
+        pictureUri = "${config.home.homeDirectory}/.background-image";
+      in
+      {
+        picture-uri = pictureUri;
+        picture-uri-dark = pictureUri;
+      };
 
       "org/gnome/desktop/screensaver" = {
         lock-enabled = false;
@@ -71,6 +91,12 @@ in
       target = "icons";
       source = ./icons;
     };
+  };
+
+  home.file = {
+    ".background-image".source = ../../wallpapers/tokyonight/gate.png;
+    ".themes".source = ./themes;
+    ${weztermBackgroundImagePath}.source = ../../wallpapers/tokyonight/ryokan.png;
   };
 
   # Let Home Manager install and manage itself.
