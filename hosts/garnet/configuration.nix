@@ -50,11 +50,25 @@
 
   services.openssh.settings.PermitRootLogin = "prohibit-password";
 
-  nerdFonts.enable = true;
+  stylix = {
+    enable = true;
+    image = ../../wallpapers/tokyonight/gate.png;
+    polarity = "dark";
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMonoNerdFontMono";
+      };
+    };
+    #cursor = {
+    #  package = pkgs.bibata-cursors;
+    #  name = "Bibata-Modern-Ice";
+    #};
+  };
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
-    gnome.gnome-settings-daemon
+    gnome-tweaks
+    gnome-settings-daemon
     gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.hot-edge
     gnomeExtensions.user-themes
@@ -67,7 +81,6 @@
     gnome-photos
     gnome-tour
     gedit # text editor
-  ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
     #gnome-terminal

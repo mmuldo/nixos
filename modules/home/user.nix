@@ -22,19 +22,24 @@ in
       type = types.str;
       default = "nvim";
     };
+
+    sessionPath = mkOption {
+      type = with types; listOf str;
+      default = [
+        "$HOME/.local/bin"
+        "$HOME/.cargo/bin"
+      ];
+    };
   };
 
   config = {
     home = {
+      inherit (cfg) sessionPath;
       username = cfg.name;
       homeDirectory = "/home/${cfg.name}";
       sessionVariables = {
         EDITOR = cfg.editor;
       };
-      sessionPath = [
-        "$HOME/.local/bin"
-        "$HOME/.cargo/bin"
-      ];
     };
 
     programs.git = {

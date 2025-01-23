@@ -9,7 +9,6 @@
     ./wg-vpn
     ./torrent-clients
     ./media.nix
-    ./nerd-fonts.nix
     ./pipewire.nix
     ./pass.nix
     ./dropbox.nix

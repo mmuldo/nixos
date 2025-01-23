@@ -28,8 +28,6 @@
     ssh.authorizedKeys = user.ssh.authorizedKeys;
   };
 
-  nerdFonts.enable = true;
-
   pipewire.enable = true;
 
   pass.enable = true;
