@@ -11,6 +11,16 @@
 
   networking.networkmanager.enable = true;
 
+  # for gsconnect/kdeconnect
+  networking.firewall = {
+    allowedTCPPortRanges = [
+      { from = 1714; to = 1764; }
+    ];
+    allowedUDPPortRanges = [
+      { from = 1714; to = 1764; }
+    ];
+  };
+
   time.timeZone = "America/Los_Angeles";
 
   services.xserver = {
@@ -57,6 +67,7 @@
     gnomeExtensions.hot-edge
     gnomeExtensions.user-themes
     gnomeExtensions.caffeine
+    gnomeExtensions.gsconnect
     jellyfin-media-player
     spotify
   ];
