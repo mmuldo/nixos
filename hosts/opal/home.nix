@@ -15,7 +15,10 @@
 
   shells.zsh.enable = true;
 
-  terminal-emulators.alacritty.enable = true;
+  terminal-emulators.alacritty = {
+    enable = true;
+    opacity = 1.0;
+  };
 
   window-managers.hyprland = {
     enable = true;
