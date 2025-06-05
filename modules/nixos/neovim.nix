@@ -19,9 +19,13 @@ in {
       # lsp
       lua-language-server
       nixd
+      clang-tools
 
       # formatters
       alejandra # nix
+
+      # debuggers
+      lldb_17
 
       # dependencies
       git
@@ -31,6 +35,9 @@ in {
 
       # compiling
       gcc
+      cmake
+      gnumake
+      pkg-config
     ];
 
     # for nixd
