@@ -26,6 +26,7 @@
 
   normal-users.${user.name} = {
     ssh.authorizedKeys = user.ssh.authorizedKeys;
+    extraGroups = ["wheel" "optical" "dialout"];
   };
 
   pipewire.enable = true;
@@ -81,6 +82,7 @@
     killall
     mpv
     anki-bin
+    slack
   ];
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
