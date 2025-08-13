@@ -25,7 +25,7 @@ in {
       alejandra # nix
 
       # debuggers
-      lldb_17
+      #lldb_17 # TODO: causing failed build, figure out why
 
       # dependencies
       git
