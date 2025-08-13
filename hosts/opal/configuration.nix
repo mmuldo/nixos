@@ -83,6 +83,7 @@
     mpv
     anki-bin
     slack
+    obsidian
   ];
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
