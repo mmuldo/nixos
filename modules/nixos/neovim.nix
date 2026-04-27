@@ -32,6 +32,7 @@ in {
       fzf
       fd
       ripgrep
+      tree-sitter
 
       # compiling
       gcc
