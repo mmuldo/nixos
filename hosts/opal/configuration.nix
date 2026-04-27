@@ -58,9 +58,9 @@
 
   stylix = {
     enable = true;
-    image = ../../wallpapers/catppuccin/four-eyed-cat.jpg;
+    image = ../../wallpapers/nord/snow-biome.jpg;
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
@@ -81,6 +81,7 @@
     inputs.agenix.packages.${system}.default
     killall
     mpv
+    feh
     anki-bin
     slack
     obsidian
