@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-cfg = config.languages.bengali;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.languages.bengali;
+in {
   options.languages.bengali = {
     enable = mkEnableOption "bengali language features";
   };
@@ -13,7 +15,9 @@ in
     i18n.inputMethod = {
       enable = true;
       type = "ibus";
-      ibus.engines = with pkgs.ibus-engines; [ openbangla-keyboard ];
+      ibus.engines = with pkgs.ibus-engines; [
+        # openbangla-keyboard
+      ];
     };
   };
 }

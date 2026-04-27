@@ -1,10 +1,12 @@
-{ lib, config, pkgs, ... }:
-
-with lib;
-let
-  cfg = config.pipewire;
-in
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.pipewire;
+in {
   options.pipewire = {
     enable = mkEnableOption "pipewire audio backend";
   };
@@ -22,7 +24,7 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      helvum
+      crosspipe
     ];
   };
 }
