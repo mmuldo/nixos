@@ -20,6 +20,8 @@ in {
       lua-language-server
       nixd
       clang-tools
+      typescript-language-server
+      svelte-language-server
 
       # formatters
       alejandra # nix
