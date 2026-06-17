@@ -39,6 +39,14 @@
 
   zathura.enable = true;
 
+  services.gammastep = {
+    enable = true;
+    provider = "manual";
+    latitude = 37.665531;
+    longitude = -122.448372;
+    temperature.night = 2000;
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
