@@ -240,6 +240,48 @@
         "type": "github"
       }
     },
+    "jfscan": {
+      "inputs": {
+        "nixpkgs": [
+          "mediacp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782681902,
+        "narHash": "sha256-hlPk0D+V1yCb7dWvI+fSZeGUVtZLvxyqbCCL9sN0ONU=",
+        "owner": "mmuldo",
+        "repo": "jfscan",
+        "rev": "00b7d87ac8677f664bfd3474c515af13f8080e2d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mmuldo",
+        "repo": "jfscan",
+        "type": "github"
+      }
+    },
+    "mediacp": {
+      "inputs": {
+        "jfscan": "jfscan",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782683118,
+        "narHash": "sha256-TG9IoFcglCGLYOUUwk72zB1W8NUxV32XYZ2pspIOtcE=",
+        "owner": "mmuldo",
+        "repo": "mediacp",
+        "rev": "ca40d0f7b4d57d6fe538994d87d0dc541a2b51ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mmuldo",
+        "repo": "mediacp",
+        "type": "github"
+      }
+    },
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -371,6 +413,7 @@
       "inputs": {
         "agenix": "agenix",
         "home-manager": "home-manager_2",
+        "mediacp": "mediacp",
         "nix-colors": "nix-colors",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",

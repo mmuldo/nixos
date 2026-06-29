@@ -27,6 +27,11 @@
     };
 
     stylix.url = "github:danth/stylix";
+
+    mediacp = {
+      url = "github:mmuldo/mediacp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

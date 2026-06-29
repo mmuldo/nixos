@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, config, user, ... }:
 
 {
   imports = [
@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     gcc
     yt-dlp
+    claude-code
   ];
 
   wg-vpn = {
@@ -40,7 +41,11 @@
 
   services.openssh.settings.PermitRootLogin = "prohibit-password";
 
+  age.secrets.jellyfin-api-key.file = ../../secrets/jellyfin-api-key.age;
+
   media.enable = true;
+
+  torrent-clients.qbittorrent.environmentFiles = [ config.age.secrets.jellyfin-api-key.path ];
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.

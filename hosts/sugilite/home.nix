@@ -2,6 +2,7 @@
 {
   imports = [
       inputs.self.outputs.homeManagerModules.default
+      inputs.mediacp.homeManagerModules.default
     ];
 
   # You should not change this value, even if you update Home Manager. If you do
@@ -14,6 +15,8 @@
   };
 
   shells.zsh.enable = true;
+
+  programs.mediacp.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

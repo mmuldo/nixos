@@ -22,6 +22,7 @@ in {
       clang-tools
       typescript-language-server
       svelte-language-server
+      basedpyright
 
       # formatters
       alejandra # nix

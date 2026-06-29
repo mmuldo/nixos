@@ -36,6 +36,12 @@ in
       default = "wg-quick-wg0.service";
     };
 
+    environmentFiles = mkOption {
+      type = types.listOf types.path;
+      default = [];
+      description = "environment files sourced into the qbittorrent service";
+    };
+
     package = mkOption {
       type = types.package;
       default = pkgs.qbittorrent-nox;
@@ -66,7 +72,7 @@ in
           Group = cfg.group;
 
           ExecStart = "${cfg.package}/bin/qbittorrent-nox";
-
+          EnvironmentFile = cfg.environmentFiles;
         };
 
         environment = {
@@ -75,6 +81,15 @@ in
         };
       };
     };
+
+    security.sudo.extraRules = [{
+      users = [ cfg.user ];
+      runAs = user.name;
+      commands = [{
+        command = "/home/${user.name}/.nix-profile/bin/mediacp";
+        options = [ "NOPASSWD" "SETENV" ];
+      }];
+    }];
 
     users = {
       users = mkMerge [
